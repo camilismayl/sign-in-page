@@ -1,13 +1,26 @@
-import { Button, Card, Form, Input } from 'antd';
+import { Card, Form, Input } from 'antd';
 import { useLoginStyles } from './login.style';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import useLocalization from 'assets/lang';
 import { FormRule } from 'antd';
 import { ILoginFormValues } from './login';
+import ButtonComponent from 'core/shared/button/button.component';
 const LoginComponent = () => {
+  const [passwordVisible, setPasswordVisible] = useState(false);
+
   const translate = useLocalization();
 
-  const { title, page, panel, subtitle, card } = useLoginStyles();
+  const {
+    title,
+    page,
+    subtitle,
+    card,
+    p,
+    input,
+    placeholder,
+    forgotPassword,
+    or,
+  } = useLoginStyles();
   const initialValues: ILoginFormValues = {
     email: '',
     password: '',
@@ -36,12 +49,12 @@ const LoginComponent = () => {
   );
   return (
     <div
-      className={`${page} py-50 px-20 w-100 d-flex justify-center align-center`}
+      className={`${page} py-50 px-20   d-flex justify-center align-center `}
     >
-      <div className={panel}>
-        <Card className={card}>
+      <div>
+        <Card className={`${card} px-20 py-26`}>
           <div className=''>
-            <div className=' mb-38 text-center mt-26'>
+            <div className=' mb-38 text-center '>
               <h1 className={title}>
                 {translate('welcome_to')} Welcome to Site
               </h1>
@@ -55,27 +68,51 @@ const LoginComponent = () => {
             size='large'
           >
             <Form.Item
-              rules={rules.email}
               name='email'
-              label='Enter your username or email address'
+              label={<p className={p}>Enter your username or email address</p>}
             >
-              <Input />
+              <Input
+                placeholder='Username or email address'
+                className={`${input} ${'pl-25'} ${placeholder}`}
+              />
             </Form.Item>
             <Form.Item
-              rules={rules.password}
+              className='mb-0'
+              label={<p className={p}>Enter your Password</p>}
               name='password '
-              label='Enter your Password'
             >
-              <Input type='password' />
+              <Input.Password
+                placeholder='Password'
+                className={`${input} ${'pl-25'} ${placeholder}`}
+                type='password'
+              />
+            </Form.Item>
+            <Form.Item className='text-right'>
+              <a className={`${'login-form-forgot'} ${forgotPassword}`} href=''>
+                Forgot password
+              </a>
             </Form.Item>
             <div>
-              <Button className='w-100 mb-33 ' type='primary' htmlType='submit'>
-                {translate('login_sign_in_button')}
-              </Button>
-              {' OR'}
-              <Button className='w-100 mt-33' type='primary' htmlType='submit'>
-                {translate('login_sign_in_button')}
-              </Button>
+              <ButtonComponent
+                className='w-100  '
+                type='signIn'
+                htmlType='submit'
+              >
+                Sign in
+                {/* {translate('login_sign_in_button')} */}
+              </ButtonComponent>
+              <div className='my-33 text-center'>
+                {' '}
+                <p className={or}> OR</p>
+              </div>
+              <ButtonComponent
+                className='w-100'
+                type='signUp'
+                htmlType='submit'
+              >
+                Sign up
+                {/* {translate('login_sign_in_button')} */}
+              </ButtonComponent>
             </div>
           </Form>
         </Card>

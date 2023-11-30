@@ -1,4 +1,5 @@
 const colors = {
+    header: '#C6553B',
     headerNavBg: '#0E1726',
     mainBg: '#edeef1',
     mainGreen: '#00b04e',
@@ -19,7 +20,12 @@ const colors = {
     tab: '#805DCA',
     tabBorderBottom: 'lightgrey',
 
+    //placeholder
+    placeholder: '#808080',
     //button
+    signInButton: '#E48700',
+    signUpButton: '#FFF4E3',
+    signUpButtonTextColor: '#BC7E23',
     buttonTextColor: '#fff',
     primaryButtonColor: '#4361ee',
     infoButtonColor: '#2196f3',
@@ -43,7 +49,7 @@ const colors = {
     toastDefaultColor: '#3B3F5C',
     loginBorderColor: '#e0e6ed',
     labelColor: '#3b3f5c',
-    forgotPasswordColor: '#888ea8',
+    forgotPasswordColor: '#AD3113',
     headerBorder: '#ebedf2',
 
     //left-menu

@@ -1,13 +1,13 @@
 const fonts = {
-    font: 'Nunito Regular',
+    font: 'Poppins Regular',
 
-    fontBold: 'Nunito Bold',
+    fontBold: 'Poppins Bold',
 
-    fontMedium: 'Nunito Medium',
+    fontMedium: 'Poppins Medium',
 
-    fontLight: 'Nunito Light',
+    fontLight: 'Poppins Light',
 
-    fontMain: 'Nunito Medium',
+    fontMain: 'Poppins Medium',
 
 };
 
