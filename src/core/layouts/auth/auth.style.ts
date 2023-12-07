@@ -1,6 +1,8 @@
 import { createUseStyles } from 'react-jss';
 import fonts from 'assets/styles/abstracts/fonts';
 import colors from 'assets/styles/abstracts/color';
+const minWidth = 1200;
+
 const styles = {
     auth: {
         display: 'flex',
@@ -11,13 +13,12 @@ const styles = {
 
         background:
             'linear-gradient(to right, #ECBC76 0%,#ECBC76 50%, #FFFEF9 0%,  #FFFEF9 50%)',
-        position: 'relative',
     },
-    svg3Style: { top: '377px', left: '264px', position: 'absolute' },
-    svg2Style: { top: '100px', right: '20px', position: 'absolute' },
+    svg3Style: { top: '217px', left: '190px', position: 'fixed', zIndex: '1' },
+    svg2Style: { top: '100px', right: '100px', position: 'fixed', zIndex: '1' },
     border: {
         marginTop: '-4px',
-        width: '600px',
+        width: '300px',
         height: '1px',
         background: 'black',
     },
@@ -28,6 +29,14 @@ const styles = {
         color: colors.header,
         font: fonts.fontBold,
         fontSize: '20px',
+    },
+    [`@media screen and (max-width: ${minWidth}px)`]: {
+        svg3Style: {
+            display: 'none',
+        },
+        svg2Style: {
+            display: 'none',
+        },
     },
     // section: {
     //     minHeight: '100vh',

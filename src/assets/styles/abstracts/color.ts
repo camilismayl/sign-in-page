@@ -20,6 +20,8 @@ const colors = {
     tab: '#805DCA',
     tabBorderBottom: 'lightgrey',
 
+    //signin text 
+    signInYellow: '#B87514',
     //placeholder
     placeholder: '#808080',
     //button

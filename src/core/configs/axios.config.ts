@@ -1,24 +1,26 @@
-import axios, {AxiosResponse, InternalAxiosRequestConfig} from 'axios';
-import {environment} from './app.config';
-import {store} from 'store/store.config';
-import {setLoader} from 'store/store.reducer';
-import {errorToast, successToast} from '../shared/toast/toast';
-import {getToken} from '../helpers/get-token';
+import axios, { AxiosResponse, InternalAxiosRequestConfig } from 'axios';
+import { environment } from './app.config';
+import { store } from 'store/store.config';
+import { setLoader } from 'store/store.reducer';
+import { errorToast, successToast } from '../shared/toast/toast';
+import { getToken } from '../helpers/get-token';
 
 const axiosInstance = axios.create({
     baseURL: environment.apiMain,
     headers: {
-        'Authorization': 'Bearer ' + getToken(),
+        Authorization: 'Bearer ' + getToken(),
     },
 });
 axiosInstance.interceptors.request.use(
     (config: InternalAxiosRequestConfig) => {
         store.dispatch(setLoader(true));
         return config;
-    }, (error) => {
+    },
+    (error) => {
         store.dispatch(setLoader(true));
         return Promise.reject(error);
-    });
+    }
+);
 
 axiosInstance.interceptors.response.use(
     (response: AxiosResponse) => {
@@ -37,7 +39,7 @@ axiosInstance.interceptors.response.use(
         let errMessage = '';
 
         const {
-            response: {status,},
+            response: { status },
         } = error;
 
         switch (status) {
@@ -58,8 +60,7 @@ axiosInstance.interceptors.response.use(
                 errMessage = 'Xəta baş verdi';
         }
 
-        errorToast(errMessage);
-        store.dispatch(setLoader(false));
+
     }
 );
 export default axiosInstance;

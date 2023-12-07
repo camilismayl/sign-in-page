@@ -13,13 +13,6 @@ const PublicComponent = () => {
     <div className={classes.public}>
       <div className={publicClasses}>
         <Outlet></Outlet>
-        <div>
-          <div>sdsdsd</div>
-          <div>sdsdsd</div>
-          <div>sdsdsd</div>
-          <div>sdsdsd</div>
-          <div>sdsdsd</div>
-        </div>
       </div>
     </div>
   );
